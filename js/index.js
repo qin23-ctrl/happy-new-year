@@ -136,7 +136,8 @@ zhufuBtn.onclick = function () {
     window.addEventListener("shaken", function () {
         console.log("用户摇动了手机");
         let shakenAdio = $('#shakenAudio');
-        AudioSwitch(shakenAdio)
+        const Y = true;
+        AudioSwitch(shakenAdio, Y)
         creatCard();
 
         //随机生成祝福卡片
