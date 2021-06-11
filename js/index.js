@@ -104,6 +104,7 @@ zfBtn.onclick = function () {
     }
     $(".page-container .page2 .g-tape").classList.toggle("run");
     AudioSwitch(zfAudio);
+    
 }
 
 
@@ -134,6 +135,8 @@ zhufuBtn.onclick = function () {
     **/
     window.addEventListener("shaken", function () {
         console.log("用户摇动了手机");
+        let shakenAdio = $('#shakenAudio');
+        AudioSwitch(shakenAdio)
         creatCard();
 
         //随机生成祝福卡片

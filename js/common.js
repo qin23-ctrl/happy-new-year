@@ -48,6 +48,7 @@ document.body.addEventListener(
 function  AudioSwitch(target, form) {
     if (target.paused) {
         if (form) {
+            console.log(1)
             target.currentTime = 0;
         }
         target.play();
