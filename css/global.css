@@ -58,6 +58,18 @@ body {
   background: url(../assets/tape-inner.png) no-repeat left top / 100% 100%;
   top: 0.97rem;
 }
+.run::before,
+.run::after {
+  animation: mymoves 2s linear infinite;
+}
+@keyframes mymoves {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
 .hand-up {
   width: 0.83rem;
   height: 0.64rem;

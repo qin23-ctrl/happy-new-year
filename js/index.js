@@ -54,51 +54,58 @@ bgMusicSwich.onclick = function () {
 //页面加载完毕时自动播放背景音乐
 window.onload = function () {
     AudioSwitch(bgMusic);
+    $('.page-container .g-modle').style.display = "none";
     if (bgMusic.paused) {
         alert("您的浏览器不支持自动播放，请手动开启背景音乐")
-
         return;
     }
     bgMusicSwich.classList.toggle('music-close');
 }
-console.log();
 // 将获取数据包裹在一个异步函数中
 
-(async function getServerData() {
-    var resp = await fetch(`
-    https://bless.yuanjin.tech/api/bless?id=${location.search.replace("?", "")
-        }`
-    ); // 获取服务器的响应，该步骤需要等待?id=5fe70be490eb6c3c4e8d2128
-    resp = await resp.json(); // 将服务器响应的json数据解析为js对象
-    // resp 即为从服务器拿到的数据对象
-    resp = resp.data;
-    // console.log(resp);
-    $('.page-container .g-modle').style.display = "none";
-    bgMusic.src = `./assets/media/${resp.bgMusicIndex}.mp3`;
-    /*?5fe70be490eb6c3c4e8d2128*/
-    var authorName = $('.page1 .g-btn');
-    authorName.innerText = `来自【${resp.author}】的祝福`;
+// (async function getServerData() {
+//     var resp = await fetch(`
+//     https://bless.yuanjin.tech/api/bless?id=${location.search.replace("?", "")
+//         }`
+//     ); // 获取服务器的响应，该步骤需要等待?id=5fe70be490eb6c3c4e8d2128
+//     resp = await resp.json(); // 将服务器响应的json数据解析为js对象
+//     // resp 即为从服务器拿到的数据对象
+//     resp = resp.data;
+//     // console.log(resp);
+//     
+//     bgMusic.src = `./assets/media/0.mp3`;
+//     /*  */
+//     var authorName = $('.page1 .g-btn');
+//     authorName.innerText = `来自【巧克力】的祝福`;
 
-    var pre = $('.page2 .note pre');
-    pre.innerText = resp.content;
+//     var pre = $('.page2 .note pre');
+//     pre.innerText = resp.content;
 
-    if (pre.clientHeight !== pre.scrollHeight) {
-        pre.dataset.default = true;
-        pre.ontouchmove = function (e) {
-            e.stopPropagation();
-        }
-        pre.ontouchend = function (e) {
-            e.stopPropagation();
-        }
+//     if (pre.clientHeight !== pre.scrollHeight) {
+//         pre.dataset.default = true;
+//         pre.ontouchmove = function (e) {
+//             e.stopPropagation();
+//         }
+//         pre.ontouchend = function (e) {
+//             e.stopPropagation();
+//         }
+//     }
+
+// })()
+
+var zfBtn = $(".page2 .g-btn");
+console.log(zfBtn)
+var zfAudio = $('#soundAudio');
+zfAudio.src = "./assets/media/blessing.mp3";
+zfBtn.onclick = function () {
+    if (!bgMusic.paused) {
+        bgMusic.pause();
+        bgMusicSwich.classList.toggle('music-close');
     }
+    $(".page-container .page2 .g-tape").classList.toggle("run");
+    AudioSwitch(zfAudio);
+}
 
-    var zfBtn = $(".page2 .g-btn");
-    var zfAudio = $('#soundAudio');
-    zfAudio.src = resp.audioUrl;
-    zfBtn.onclick = function () {
-        AudioSwitch(zfAudio);
-    }
-})()
 
 var zhufuBtn = $('.page3 .g-modle .g-btn');
 
