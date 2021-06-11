@@ -46,11 +46,10 @@ document.body.addEventListener(
  * @param {*是否重新播放} form 
  */
 function  AudioSwitch(target, form) {
-    if (target.paused) {
-        if (form) {
-            console.log(1)
+     if (form) {
             target.currentTime = 0;
         }
+    if (target.paused) {
         target.play();
     } else {
         target.pause();
