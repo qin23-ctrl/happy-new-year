@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 13.33333333vw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <title>跨年祝福</title>
+
+  <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+  <!-- 页面容器 -->
+  <div class="page-container">
+    <div class=" music music-close" data-default="true"></div>
+    <div class="g-modle">
+      <div class="loding">
+        <img src="./assets/loading.svg" alt="">
+      </div>
+    </div>
+    <!-- 第一页 -->
+    <div class="page page1">
+      <div class="g-btn">来自[]的祝福</div>
+      <div class="hand-up"></div>
+    </div>
+    <!-- 第二页 -->
+    <div class="page page2 g-letter-bg">
+      <div class="g-tape"></div>
+      <div class="g-btn" data-default="true">播放祝福语音</div>
+      <div class="note">
+        <pre>
+
+        </pre>
+      </div>
+      <div class="hand-up"></div>
+    </div>
+    <!-- 第三页 -->
+    <div class="page page3 g-letter-bg">
+      <div id="divBless-card">
+      </div>
+      <div class="g-modle">
+        <div class="g-btn" data-default="true">点击开启摇一摇</div>
+      </div>
+
+      <div class="bless-label"></div>
+      <div class="g-paper">
+        <div class="paper-content"></div>
+      </div>
+
+      <div class="g-seal"></div>
+    </div>
+  </div>
+
+  <!-- 引用JS -->
+  <audio id="soundAudio"></audio>
+  <audio id="bgMusicAudio" loop></audio>
+  <audio id="shakenAudio" src="./assets/media/shaken.mp3"></audio>
+  <script src="./js/utils.min.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
